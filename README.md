@@ -21,7 +21,7 @@ To run the experiments in this repository, ensure the following libraries are in
 2. TBB (Threading Building Blocks): Required for efficient parallel computation.
 3. Gurobi (for HNSN experiments in the usss directory only): Make sure to set the Gurobi license file environment variable: `export GRB_LICENSE_FILE=/sw/external/gurobi/gurobi.lic`
 
-You have the choice of downloading the above on your system, or building from source for Eigen and Boost. To build Eigen from source, include the source under each project's `./src/external/eigen` path. By default, we fetch and link Boost from source; to disable this behaviour disable `USE_FETCHCONTENT_FOR_BOOST` in the make CMake file by changing ON to OFF.
+You have the choice of downloading the above on your system, or building from source for Eigen and Boost. To build Eigen from source, include the source under the `/external/eigen` path. By default, we fetch and link Boost from source; to disable this behaviour disable `USE_FETCHCONTENT_FOR_BOOST` in the make CMake file by changing `ON` to `OFF`.
 
 If you encounter an error such as `libtbb.so.12: cannot open shared object file: No such file or directory` when running the experiment driver, set the LD_LIBRARY_PATH environment variable to include the path to your TBB installation (adjust the path as needed based on where you downloaded TBB):
 
@@ -181,9 +181,9 @@ Objective: Maximize the generalized density `f(S)/|S|`, where `f(S)` is a normal
 
 A primary instance is:
 
-```
-f(S) = ∑_{u ∈ S} d(u, S)^p, for p > 1
-```
+$$
+f(S) = \sum_{u ∈ S} \deg_S(u)^p,~ p > 1
+$$
 
 This generalizes densest subgraph computation. Flow-based solutions don't apply here.
 
@@ -366,16 +366,16 @@ The experiments above are using the 3rd query. Omitting the query will result in
 
 ---
 
-## Submodular Function Minimization (Minimum $s$-$t$ cut problem)
+## Submodular Function Minimization (Minimum $s{-}t$ cut problem)
 
 ### Overview 
 
-These are the experiments for the Minimum $s$-$t$ cut problem. We implement 4 algorithms:
+These are the experiments for the Minimum $s{-}t$ cut problem. We implement 4 algorithms:
 
 - Frank-Wolfe 
 - SuperGreedy++
 - Minimum Norm Point (MNP)
-- Edmonds Karp Flow-Based Algorithm for Minimum $s$-$t$ cut. 
+- Edmonds Karp Flow-Based Algorithm for Minimum $s{-}t$ cut. 
 
 ### Datasets 
 Available in the `sfm/dataset/` and `sfm/dataset/remap` directories:
