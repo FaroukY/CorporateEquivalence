@@ -27,7 +27,6 @@
  * neighbors of w: namely take away d_w^p - (d_w - 1)^p, and replace by (d_w - 1)^p - (d_u - 2)^p
  * => -(d_w^p - (d_w - 1)^p) + (d_w - 1)^p + (d_u - 2)^p = -d_w^p + 2 * (d_w - 1)^p - (d_u - 2)^p
  *
- *
  * We augment the problem to query points in the contrapolymatroid of f(S) = E(S) = 0.5 * sum_{i in S} d_i.
  * Such points will satisfy that y(S) - f(S) >= 0 => 2 * y(S) - sum_{i in S} d_i >= 0.
  * Or that sum_{i in S} d_i - 2 * y(S) <= 0, where the first part is supermodular and the second part is modular. Hence
@@ -177,8 +176,8 @@ void SUPERGREEDY::run(const Graph &G, Stats &stats, const std::vector<double> y,
 
             if (denominator)
                 denom = is_contra ? 1 : n;
-                best_density = std::max(best_density,
-                                        std::pow(static_cast<double>(numerator) / denom, 1.0 / p));
+            best_density = std::max(best_density,
+                                    std::pow(static_cast<double>(numerator) / denom, 1.0 / p));
             denominator -= 1;
             next++;
         }

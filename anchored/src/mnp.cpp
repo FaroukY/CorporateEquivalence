@@ -28,7 +28,6 @@ namespace {
         // Sort node indices in ascending order of their current load
         std::sort(std::execution::par, indices.begin(), indices.end(), [&loads](int a, int b) { return loads(a) < loads(b); });
 
-        // TODO: pass in
         std::vector<bool> deleted(n, false);
 
         // Set q(vi) = f(Si) - f(Si-1)

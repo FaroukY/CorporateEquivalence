@@ -3,10 +3,9 @@
 #include "flow.h"
 // high‐performance push‐relabel
 extern "C" {
-#include "external/exactDSP-cpp/hi_pr.h"
+#include "../../external/exactDSP-cpp/hi_pr.h"
 }
 
-#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <cstring>
@@ -138,7 +137,6 @@ extern "C" int run_flow(const Graph &G,
                 nodes_, arcs, cap,
                 nodes_ + source, nodes_ + sink,
                 0);
-        
 
         // 4) extract new subgraph & compute new λ
         int new_numerator = 0, new_n = 0;
@@ -166,7 +164,8 @@ extern "C" int run_flow(const Graph &G,
         }
         stats.pause_timer();
         stats.push(iter, lambda, 0.0);
-        if (new_n == 0)break;
+        if (new_n == 0)
+            break;
         double new_c = double(new_numerator) / new_n;
         cout << new_c << "\n";
 

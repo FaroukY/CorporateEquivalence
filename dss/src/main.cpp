@@ -94,7 +94,6 @@ int main(int argc, char *argv[])
         {
             contra_path = contra_path.substr(0, dot_pos) + "_perturbed.txt";
         }
-        // Replace dss with dsg
         std::cout << "Attempting to parse vector from file: " << contra_path << " with idx " << contra_query_idx << std::endl;
 
         try

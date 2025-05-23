@@ -1,6 +1,6 @@
 // High-performance push-relabel based exact DSP solver
 extern "C" {
-#include "external/exactDSP-cpp/hi_pr.h"
+#include "../../external/exactDSP-cpp/hi_pr.h"
 }
 
 // Standard library includes for IO, containers, timing, etc.

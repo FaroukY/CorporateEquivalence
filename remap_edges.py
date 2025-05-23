@@ -2,15 +2,17 @@ import os
 import argparse
 
 """
-Redefine node ids for amazon datasets to be in [0, n), then redefine the mapping.
+Redefine node ids for graph datasets to be in [0, n), then redefine the mapping.
+Note that the provided datasets are already cleaned/remapped.
 """
+
 
 def remap_edges(input_file, output_file):
     edges = []
     ids = set()
 
     # Read the file, skip the the num_nodes/edges line
-    with open(input_file, 'r') as f:
+    with open(input_file, "r") as f:
         first_line = f.readline().strip()
         for line in f:
             parts = line.strip().split()
@@ -31,10 +33,11 @@ def remap_edges(input_file, output_file):
     indexed_edges.sort()
 
     # Write to output file
-    with open(output_file, 'w') as f:
-        f.write(first_line + '\n')  # Include num_nodes / edges
+    with open(output_file, "w") as f:
+        f.write(first_line + "\n")  # Include num_nodes / edges
         for u_idx, v_idx in indexed_edges:
             f.write(f"{u_idx}\t{v_idx}\n")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Remap edges")
@@ -44,7 +47,7 @@ if __name__ == "__main__":
     input_file = os.path.abspath(args.path)
     base, ext = os.path.splitext(os.path.basename(input_file))
 
-    output_dir = os.path.join(os.path.dirname(input_file), 'remap')
+    output_dir = os.path.join(os.path.dirname(input_file), "remap")
     os.makedirs(output_dir, exist_ok=True)  # Create the directory if it doesn't exist
     output_file = os.path.join(output_dir, f"{base}{ext}")
 

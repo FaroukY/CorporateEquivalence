@@ -1892,7 +1892,7 @@ int run_incremental(int argc, char **argv, Stats &stats)
     displayBreakpoints();
 #endif
 
-    // TODO: segfaults - fix later
+    // Commented because it segfaults :(
     // freeMemory();
 
     return 0;

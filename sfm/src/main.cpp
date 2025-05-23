@@ -72,7 +72,6 @@ double edmonds_karp_min_cut(const Graph &graph, int source, int sink)
     return max_flow;
 }
 
-
 int main(int argc, char *argv[])
 {
     if (argc < 3)
@@ -141,7 +140,7 @@ int main(int argc, char *argv[])
     {
         FRANKWOLFE fw;
         fw.run(graph, stats, s, t, iterations);
-    } else if (algorithm == "exact")
+    } else if (algorithm == "flow")
     {
         stats.start_timer();
         double min_cut = edmonds_karp_min_cut(graph, s, t);
@@ -149,8 +148,7 @@ int main(int argc, char *argv[])
 
         std::cout << "Exact Min Cut value: " << min_cut << std::endl;
         stats.push(0, min_cut, 0); // Just 1 stat entry
-    }
-    else
+    } else
     {
         std::cerr << "Unknown algorithm: " << algorithm << std::endl;
         return 1;

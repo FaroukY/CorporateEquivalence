@@ -21,6 +21,8 @@ To run the experiments in this repository, ensure the following libraries are in
 2. TBB (Threading Building Blocks): Required for efficient parallel computation.
 3. Gurobi (for HNSN experiments in the usss directory only): Make sure to set the Gurobi license file environment variable: `export GRB_LICENSE_FILE=/sw/external/gurobi/gurobi.lic`
 
+You have the choice of downloading the above on your system, or building from source for Eigen and Boost. To build Eigen from source, include the source under each project's `./src/external/eigen` path. By default, we fetch and link Boost from source; to disable this behaviour disable `USE_FETCHCONTENT_FOR_BOOST` in the make CMake file by changing ON to OFF.
+
 If you encounter an error such as `libtbb.so.12: cannot open shared object file: No such file or directory` when running the experiment driver, set the LD_LIBRARY_PATH environment variable to include the path to your TBB installation (adjust the path as needed based on where you downloaded TBB):
 
 ```bash
@@ -290,16 +292,16 @@ All algorithms are integrated via `usss/src/main.cpp`. While in the `root` direc
 #### Examples
 
 ```bash
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated IP output/hnsn/out.txt 100
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated FW output/hnsn/out.txt 100
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated MNP output/hnsn/out.txt 100
-export GRB_LICENSE_FILE=/sw/external/gurobi/gurobi.lic && ./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated LP output/hnsn/out.txt
-export GRB_LICENSE_FILE=/sw/external/gurobi/gurobi.lic && ./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated CD output/hnsn/out.txt
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated GAR output/hnsn/out.txt
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated GR output/hnsn/out.txt
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated FGR output/hnsn/out.txt
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated GRR output/hnsn/out.txt
-./build/dev/usss/usss_driver usss/datasets/graph_ecommerce_updated FLOW output/hnsn/out.txt
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated IP output/hnsn/out.txt 100
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated FW output/hnsn/out.txt 100
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated MNP output/hnsn/out.txt 100
+export GRB_LICENSE_FILE=/sw/external/gurobi/gurobi.lic && ./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated LP output/hnsn/out.txt
+export GRB_LICENSE_FILE=/sw/external/gurobi/gurobi.lic && ./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated CD output/hnsn/out.txt
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated GAR output/hnsn/out.txt
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated GR output/hnsn/out.txt
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated FGR output/hnsn/out.txt
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated GRR output/hnsn/out.txt
+./build/dev/usss/usss_driver usss/dataset/graph_ecommerce_updated FLOW output/hnsn/out.txt
 ```
 
 For the experiments above, the file `./output/hnsn/out.txt` contains one row per iteration for the MNP, IP (SuperGreedy++), and FW algorithms. Each row includes, in order: the iteration number, the density at that iteration, the norm of the load vector, and the time taken for that iteration (in nanoseconds, not cumulative). For the remaining seven methods, the file contains a single row each, representing iteration number 0, the final result produced by the algorithm, a placeholder value of 0, and the total time taken by the algorithm (in nanoseconds).
