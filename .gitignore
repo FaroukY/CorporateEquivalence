@@ -1,13 +1,13 @@
-# # **/dataset/*
-# /output
+**/dataset/*
+/output
 
-# /temphipr
-# /tempinc
+/temphipr
+/tempinc
 
 build/
-# slurms/
-# output/
+slurms/
+output/
 
 
-# __pycache__/
-# **.pyc
+__pycache__/
+**.pyc
