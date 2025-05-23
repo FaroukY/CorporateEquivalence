@@ -1,0 +1,83 @@
+default:
+  mem: '40G'
+  nodes: 1
+  cpus_per_task: 4
+  tasks: 1
+  partition: 'cpu'
+  account: 'bdzc-delta-cpu'
+  job_name: 'MinCutJob'
+  time: '00:25:00'
+  error: './rubbish/slurm-%j.err'
+  output: './rubbish/slurm-%j.out'
+
+# The name should match the argument supplied to the driver
+entrypoint: "./build/dev/sfm/sfm_driver"
+output_dir: "./output/sfm"
+algorithms:
+  supergreedy:
+    experiments:
+      - name: '0'
+        args: [1000]
+  frankwolfe:
+    experiments:
+      - name: '0'
+        args: [10000]
+  mnp:
+    experiments:
+      - name: '0'
+        args: [500]
+  # exact:
+  #   experiments:
+  #     - name: '0'
+  #       args: []
+
+
+datasets:
+  m10:
+    dataset_path: './sfm/src/dataset/m10.txt'
+  m30:
+    dataset_path: './sfm/src/dataset/m30.txt'
+  m50:
+    dataset_path: './sfm/src/dataset/m50.txt'
+  ww:
+    dataset_path: './sfm/src/dataset/ww.txt'
+  sawtooth0:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth0_s0_t1.max'
+  sawtooth1:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth1_s0_t1.max'
+  sawtooth2:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth2_s0_t1.max'
+  sawtooth3:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth3_s0_t1.max'
+  sawtooth4:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth4_s0_t1.max'
+  sawtooth5:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth5_s0_t1.max'
+  sawtooth6:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth6_s0_t1.max'
+  sawtooth7:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth7_s0_t1.max'
+  sawtooth8:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth8_s0_t1.max'
+  sawtooth9:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth9_s0_t1.max'
+  sawtooth10:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth10_s0_t1.max'
+  sawtooth11:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth11_s0_t1.max'
+  sawtooth12:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth12_s0_t1.max'
+  sawtooth13:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth13_s0_t1.max'
+  sawtooth14:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth14_s0_t1.max'
+  sawtooth15:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth15_s0_t1.max'
+  sawtooth16:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth16_s0_t1.max'
+  sawtooth17:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth17_s0_t1.max'
+  sawtooth18:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth18_s0_t1.max'
+  sawtooth19:
+    dataset_path: './sfm/src/dataset/BVZ-sawtooth/remap/BVZ-sawtooth19_s0_t1.max'

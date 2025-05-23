@@ -1,0 +1,46 @@
+default:
+  mem: '40G'
+  nodes: 1
+  cpus_per_task: 4
+  tasks: 1
+  partition: 'cpu'
+  account: 'bdzc-delta-cpu'
+  job_name: 'AnchoredJob'
+  time: '00:10:00'
+  error: './rubbish/slurm-%j.err'
+  output: './rubbish/slurm-%j.out'
+
+# The name should match the argument supplied to the driver
+entrypoint: "./build/dev/anchored/anchored_driver"
+output_dir: "./output/anchored"
+algorithms:
+  supergreedy:
+    experiments:
+      - name: '0'
+        args: [100]
+        # overrides:
+        #   mem: '40G'
+  frankwolfe:
+    experiments:
+      - name: '0'
+        args: [100]
+  mnp:
+    experiments:
+      - name: '0'
+        args: [100]
+  flow:
+    experiments:
+      - name: '0'
+        args: []
+
+datasets:
+  close_cliques:
+    dataset_path: './dsg/dataset/remap/close-cliques_R_ns10_nt201.txt'
+  com_amazon:
+    dataset_path: './dsg/dataset/remap/com-amazon_R_ns10_nt201.txt'
+  com_dblp:
+    dataset_path: './dsg/dataset/remap/com-dblp_R_ns10_nt201.txt'
+  roadnet_CA:
+    dataset_path: './dsg/dataset/remap/roadNet-CA_R_ns10_nt201.txt'
+  roadnet_PA:
+    dataset_path: './dsg/dataset/remap/roadNet-PA_R_ns10_nt201.txt'

@@ -1,0 +1,84 @@
+# configs/hnsn.yaml
+
+default:
+  mem: "35G"
+  cpus_per_task: 4
+  nodes: 1
+  tasks: 1
+  partition: 'cpu-preempt'
+  account: 'bdzc-delta-cpu'
+  job_name: 'HNSNJob'
+  time: '00:30:00'
+  error: './slurms/hnsn/stdoutstderr/slurm-%j.err'
+  output: './slurms/hnsn/stdoutstderr/slurm-%j.out'
+
+entrypoint: "./build/dev/usss/usss_driver"
+output_dir: "./output/hnsn/hnsn2"
+
+algorithms:
+  FLOW:
+    experiments:
+      - name: '0'
+        args: []
+  LP:
+    experiments:
+      - name: '0'
+        args: []
+  CD:
+    experiments:
+      - name: '0'
+        args: []
+  IP:
+    experiments:
+      - name: '0'
+        args: [100]
+  GAR:
+    experiments:
+      - name: '0'
+        args: []
+  GR:
+    experiments:
+      - name: '0'
+        args: []
+  FGR:
+    experiments:
+      - name: '0'
+        args: []
+  GRR:
+    experiments:
+      - name: '0'
+        args: []
+  FW:
+    experiments:
+      - name: '0'
+        args: [100]
+  MNP:
+    experiments:
+      - name: '0'
+        args: [100]
+
+datasets:
+  graph_ACM_updated:
+    dataset_path: './usss/datasets/graph_ACM_updated'
+  graph_connectious_updated:
+    dataset_path: './usss/datasets/graph_connectious_updated'
+  graph_ecommerce_updated:
+    dataset_path: './usss/datasets/graph_ecommerce_updated'
+  graph_fruithut_updated:
+    dataset_path: './usss/datasets/graph_fruithut_updated'
+  graph_kosarak_updated:
+    dataset_path: './usss/datasets/graph_kosarak_updated'
+  graph_NBA_updated:
+    dataset_path: './usss/datasets/graph_NBA_updated'
+  graph_yoochoose_updated:
+    dataset_path: './usss/datasets/graph_yoochoose_updated'
+  graph_digg_updated:
+    dataset_path: './usss/datasets/graph_digg_updated'
+  graph_foodmart_updated:
+    dataset_path: './usss/datasets/graph_foodmart_updated'
+  graph_imdb_updated:
+    dataset_path: './usss/datasets/graph_imdb_updated'
+  graph_liquor_updated:
+    dataset_path: './usss/datasets/graph_liquor_updated'
+  graph_notredame_updated:
+    dataset_path: './usss/datasets/graph_notredame_updated'

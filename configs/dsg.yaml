@@ -1,0 +1,68 @@
+default:
+  mem: '40G'
+  nodes: 1
+  cpus_per_task: 4
+  tasks: 1
+  partition: 'cpu'
+  account: 'bdzc-delta-cpu'
+  job_name: 'DSGJob'
+  time: '00:30:00'
+  error:  './slurmoutput/slurm-%j.err'
+  output: './slurmoutput/slurm-%j.out'
+
+# The name should match the argument supplied to the driver
+entrypoint: "./build/dev/dsg/dsg_driver"
+output_dir: "./output/dsg"
+algorithms:
+  fista:
+    experiments:
+      - name: '0'
+        args: [100]
+        # overrides:
+        #   mem: '40G'
+  frankwolfe:
+    experiments:
+      - name: '0'
+        args: [100]
+  mnp:
+    experiments:
+      - name: '0'
+        args: [100]
+  incremental:
+    experiments:
+      - name: '0'
+        args: []
+  pushrelabel_contra:
+    experiments:
+      - name: '0'
+        args: []
+  greedypp:
+    experiments:
+      - name: '0'
+        args: [100]
+  rcdm:
+    experiments:
+      - name: '0'
+        args: [100]
+
+datasets:
+  cit_patents:
+    dataset_path: './dsg/dataset/remap/cit-Patents.txt'
+  close_cliques:
+    dataset_path: './dsg/dataset/remap/close-cliques.txt'
+  com_amazon:
+    dataset_path: './dsg/dataset/remap/com-amazon.txt'
+  com_dblp:
+    dataset_path: './dsg/dataset/remap/com-dblp.txt'
+  com_orkut:
+    dataset_path: './dsg/dataset/remap/com-orkut.txt'
+    overrides:
+      mem: '100G'
+  disjoint_union_cliques:
+    dataset_path: './dsg/dataset/remap/disjoint_union_Ka.txt'
+  roadnet_CA:
+    dataset_path: './dsg/dataset/remap/roadNet-CA.txt'
+  roadnet_PA:
+    dataset_path: './dsg/dataset/remap/roadNet-PA.txt'
+  wiki_topcats:
+    dataset_path: './dsg/dataset/remap/wiki-topcats.txt'

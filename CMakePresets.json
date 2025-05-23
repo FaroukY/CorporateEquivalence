@@ -1,0 +1,46 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+      "major": 3,
+      "minor": 10,
+      "patch": 0
+    },
+    "configurePresets": [
+      {
+        "name": "base",
+        "hidden": true,
+        "description": "Base config from which others inherit",
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release",
+          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+          "CMAKE_MODULE_PATH": "${sourceDir}/build/${presetName}"
+        },
+        "warnings": {
+          "dev": true,
+          "deprecated": true
+        },
+        "errors": {
+          "dev": true,
+          "deprecated": false
+        }
+      },
+      {
+        "name": "dev",
+        "inherits": "base",
+        "displayName": "Dev Config",
+        "description": "Build for dev.",
+        "generator": "Unix Makefiles",
+        "environment": {
+          "CC": "gcc",
+          "CXX": "g++"
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "dev",
+        "configurePreset": "dev"
+      }
+    ]
+  }

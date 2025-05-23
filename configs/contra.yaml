@@ -1,0 +1,64 @@
+default:
+  mem: '40G'
+  nodes: 1
+  cpus_per_task: 4
+  tasks: 1
+  partition: 'cpu'
+  account: 'bdzc-delta-cpu'
+  job_name: 'ContraJob'
+  time: '01:00:00'
+  error: 'slurm-%j.err'
+  output: 'slurm-%j.out'
+
+# The name should match the argument supplied to the driver
+entrypoint: "./build/dev/dss/dss_driver"
+output_dir: "./output/dss_contra"
+algorithms:
+  supergreedy:
+    experiments:
+      - name: '1e-2'
+        args: [100, 1, 1]
+      - name: '1e-1'
+        args: [100, 1, 2]
+      - name: '1'
+        args: [100, 1, 3]
+      - name: '6'
+        args: [600, 1, 1]
+      - name: '12'
+        args: [600, 1, 2]
+  frankwolfe:
+    experiments:
+      - name: '1e-2'
+        args: [100, 1, 1]
+      - name: '1e-1'
+        args: [100, 1, 2]
+      - name: '1'
+        args: [100, 1, 3]
+      - name: '6'
+        args: [1000, 1, 1]
+      - name: '12'
+        args: [1000, 1, 2]
+  mnp:
+    experiments:
+      - name: '1e-2'
+        args: [100, 1, 1]
+      - name: '1e-1'
+        args: [100, 1, 2]
+      - name: '1'
+        args: [100, 1, 3]
+      - name: '6'
+        args: [100, 1, 1]
+      - name: '12'
+        args: [100, 1, 2]
+
+datasets:
+  close_cliques:
+    dataset_path: './dsg/dataset/remap/close-cliques.txt'
+  com_amazon:
+    dataset_path: './dsg/dataset/remap/com-amazon.txt'
+  com_dblp:
+    dataset_path: './dsg/dataset/remap/com-dblp.txt'
+  roadnet_CA:
+    dataset_path: './dsg/dataset/remap/roadNet-CA.txt'
+  roadnet_PA:
+    dataset_path: './dsg/dataset/remap/roadNet-PA.txt'
