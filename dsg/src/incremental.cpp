@@ -1,3 +1,6 @@
+// Adapted from Ayleen Irribarra and Dorit S. Hochbaum's implementation.
+// See ../../licenses/incremental-hpf/LICENSE.md for copyright and license terms.
+
 #include <math.h>
 #include <stdexcept>
 #include <stdio.h>

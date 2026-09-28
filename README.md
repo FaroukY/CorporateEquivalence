@@ -4,6 +4,10 @@
 
 This repository contains the codebase for the paper "Corporate Needs You to Find the Difference: Revisiting Submodular and Supermodular Ratio Optimization Problems." All experiments presented in the main paper can be reproduced using the code and instructions provided in this README.
 
+Some implementations use code from the original authors; where no public implementation was available, we wrote our own. See the [accompanying paper](https://arxiv.org/abs/2505.17443) for citations to the original sources.
+
+The DSG Incremental Flow implementation is adapted from [Ayleen Irribarra and Dorit S. Hochbaum's implementation](https://github.com/hochbaumGroup/Incremental-parametric-hpf-for-densest-subgraph); see its [license](licenses/incremental-hpf/LICENSE.md).
+
 ## Accessing Full and Cleaned Datasets. 
 
 This repository includes only one representative dataset per problem to help users quickly run the codebase. To access the full set of datasets used in the paper, please download them from the following (anonymous) link:
