@@ -1,19 +1,5 @@
-/*
- * Adapted from the incremental parametric HPF implementation for densest subgraph
- * by Ayleen Irribarra and Dorit S. Hochbaum:
- * https://github.com/hochbaumGroup/Incremental-parametric-hpf-for-densest-subgraph
- * Original source: src/1.0/incremental.c.
- * The upstream license is reproduced below and in
- * ../../licenses/incremental-hpf/LICENSE.md.
- *
- * Copyright © 2024. The Regents of the University of California (Regents). All Rights Reserved.
- *
- * Permission to use, copy, modify, and distribute this software and its documentation for educational, research, and not-for-profit purposes, without fee and without a signed licensing agreement, is hereby granted, provided that the above copyright notice, this paragraph and the following two paragraphs appear in all copies, modifications, and distributions. Contact The Office of Technology Licensing, UC Berkeley, 2150 Shattuck Avenue, Suite 510, Berkeley, CA 94720-1620, (510) 643-7201, for commercial licensing opportunities. Created by A. Irribarra and Dorit S. Hochbaum, Department of Industrial Engineering and Operations Research, University of California, Berkeley. This work is adapted from the Pseudoflow implementation by Bala Chandran and Dorit S. Hochbaum available at https://riot.ieor.berkeley.edu/Applications/Pseudoflow/maxflow.html
- *
- * IN NO EVENT SHALL REGENTS BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF REGENTS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * REGENTS SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE AND ACCOMPANYING DOCUMENTATION, IF ANY, PROVIDED HEREUNDER IS PROVIDED "AS IS". REGENTS HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
- */
+// Adapted from Ayleen Irribarra and Dorit S. Hochbaum's implementation.
+// See ../../licenses/incremental-hpf/LICENSE.md for copyright and license terms.
 
 #include <math.h>
 #include <stdexcept>

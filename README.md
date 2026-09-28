@@ -4,15 +4,9 @@
 
 This repository contains the codebase for the paper "Corporate Needs You to Find the Difference: Revisiting Submodular and Supermodular Ratio Optimization Problems." All experiments presented in the main paper can be reproduced using the code and instructions provided in this README.
 
-## Third-party code and licenses
+Some implementations use code from the original authors; where no public implementation was available, we wrote our own. See the [accompanying paper](https://arxiv.org/abs/2505.17443) for citations to the original sources.
 
-The DSG Incremental Flow implementation in [`dsg/src/incremental.cpp`](dsg/src/incremental.cpp) is adapted from the [incremental parametric HPF implementation for densest subgraph](https://github.com/hochbaumGroup/Incremental-parametric-hpf-for-densest-subgraph) by Ayleen Irribarra and Dorit S. Hochbaum, University of California, Berkeley. The upstream implementation is itself adapted from the Pseudoflow implementation by Bala Chandran and Dorit S. Hochbaum.
-
-The original copyright notice and license are reproduced verbatim in [`licenses/incremental-hpf/LICENSE.md`](licenses/incremental-hpf/LICENSE.md) and included in the source file. These terms apply to the imported implementation and its modifications; this notice does not assign a license to unrelated code in this repository. The license permits educational, research, and not-for-profit use under its stated conditions and provides contact information for commercial licensing.
-
-The license was copied from upstream commit [`d3e909e65f2fc2925c24d0d0a05f9ead2867649c`](https://github.com/hochbaumGroup/Incremental-parametric-hpf-for-densest-subgraph/blob/d3e909e65f2fc2925c24d0d0a05f9ead2867649c/LICENSE.md). The corresponding upstream source is [`src/1.0/incremental.c`](https://github.com/hochbaumGroup/Incremental-parametric-hpf-for-densest-subgraph/blob/d3e909e65f2fc2925c24d0d0a05f9ead2867649c/src/1.0/incremental.c).
-
-Algorithm reference: D. S. Hochbaum, “Flow is best, fast and scalable: The incremental parametric cut for maximum density and other ratio subgraph problems,” KDIR 2024.
+The DSG Incremental Flow implementation is adapted from [Ayleen Irribarra and Dorit S. Hochbaum's implementation](https://github.com/hochbaumGroup/Incremental-parametric-hpf-for-densest-subgraph); see its [license](licenses/incremental-hpf/LICENSE.md).
 
 ## Accessing Full and Cleaned Datasets. 
 
@@ -90,7 +84,7 @@ Implemented algorithms for finding densest subgraphs:
 3. **Minimum Norm Point (MNP)** – Convex optimization, in `dsg/src/mnp.h`
 4. **RCDM** -- Convex optimization, in `dsg/src/rcdm_permutation.h`
 5. **Greedy++** -- Combinatorial, in `dsg/src/greedypp.h`
-6. **Incremental Flow** – Flow-based, adapted from Ayleen Irribarra and Dorit S. Hochbaum's implementation; interface in `dsg/src/incremental.h`. See [third-party code and licenses](#third-party-code-and-licenses).
+6. **Incremental Flow** – Flow-based, in `dsg/src/incremental.h`
 7. **Push-Relabel (NEW ALGORITHM)** – Flow-based, in `dsg/src/pushrelabel.h`
 
 ### Datasets
